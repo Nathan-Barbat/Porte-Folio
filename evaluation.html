@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Évaluation</title>
+    <link rel="stylesheet" href="css/evaluation.css">
+</head>
+<body>
+    <!-- Étoiles clignotantes -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    
+    <!-- Étoile filante -->
+    <div class="shooting-star"></div>
+
+    <header>
+        <h1>NIVEAU 7 - ÉVALUATION</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="ecole.html">École</a>
+            <a href="entreprise.html">Entreprise</a>
+            <a href="contact.html">Contact</a>
+            <a href="veille.html">Veille Tech</a>
+            <a href="projets.html">Projets</a>
+            <a href="evaluation.html">Évaluation</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="evaluation-section">
+            <h2>Grille d'évaluation BTS SIO</h2>
+            <p>Cette section présentera la grille d'évaluation pour l'épreuve E6 du BTS SIO.</p>
+            
+            <div class="pdf-container">
+                <div class="pdf-title">BTS SERVICES INFORMATIQUES AUX ORGANISATIONS SESSION 2025</div>
+                <div class="pdf-subtitle">ANNEXE 9-5-B : Grille d'aide à l'évaluation</div>
+                <div class="pdf-subtitle">Épreuve E6 - Conception et développement d'applications (option SLAM)</div>
+                
+                <!-- Zone pour intégrer le contenu du PDF -->
+                <div id="pdf-viewer">
+                    <p style="text-align: center; margin: 50px 0;">
+                        Vous pourrez ajouter ici la grille d'évaluation de l'épreuve E6.<br><br>
+                        Les pages 5 et 6 du document PDF fourni peuvent être intégrées à cet endroit.
+                    </p>
+                    
+                    <!-- Bouton pour charger le PDF -->
+                    <div style="text-align: center; margin: 20px 0;">
+                        <button id="load-pdf" class="space-btn">Charger la grille d'évaluation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Script pour charger la police Press Start 2P
+        document.addEventListener('DOMContentLoaded', function() {
+            WebFont.load({
+                google: {
+                    families: ['Press Start 2P']
+                }
+            });
+            
+            // Script pour simuler le chargement du PDF
+            document.getElementById('load-pdf').addEventListener('click', function() {
+                alert('Cette fonction vous permettra de charger les pages spécifiques du PDF de la grille d\'évaluation.');
+            });
+        });
+    </script>
+</body>
+</html>

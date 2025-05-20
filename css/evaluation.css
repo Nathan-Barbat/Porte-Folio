@@ -1,0 +1,868 @@
+/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs - niveau final/étoilé */
+:root {
+    --space-bg: #000033;
+    --space-dark: #000022;
+    --space-light: #4a50b2;
+    --space-accent: #ffcc00;
+    --space-star: #ffffff;
+    --space-text: #ffffff;
+    --space-black: #000000;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--space-bg);
+    color: var(--space-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+/* Étoiles clignotantes */
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: var(--space-star);
+    border-radius: 50%;
+    -webkit-animation: twinkle 4s infinite;
+    animation: twinkle 4s infinite;
+}
+
+@-webkit-keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* Positionnement aléatoire des étoiles */
+.star:nth-child(1) { top: 10%; left: 5%; -webkit-animation-delay: 0.1s; animation-delay: 0.1s; }
+.star:nth-child(2) { top: 15%; left: 15%; -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 20%; left: 25%; -webkit-animation-delay: 0.9s; animation-delay: 0.9s; }
+.star:nth-child(4) { top: 25%; left: 35%; -webkit-animation-delay: 1.3s; animation-delay: 1.3s; }
+.star:nth-child(5) { top: 10%; left: 45%; -webkit-animation-delay: 1.7s; animation-delay: 1.7s; }
+.star:nth-child(6) { top: 15%; left: 55%; -webkit-animation-delay: 2.1s; animation-delay: 2.1s; }
+.star:nth-child(7) { top: 20%; left: 65%; -webkit-animation-delay: 2.5s; animation-delay: 2.5s; }
+.star:nth-child(8) { top: 25%; left: 75%; -webkit-animation-delay: 2.9s; animation-delay: 2.9s; }
+.star:nth-child(9) { top: 10%; left: 85%; -webkit-animation-delay: 3.3s; animation-delay: 3.3s; }
+.star:nth-child(10) { top: 15%; left: 95%; -webkit-animation-delay: 3.7s; animation-delay: 3.7s; }
+.star:nth-child(11) { top: 30%; left: 10%; -webkit-animation-delay: 0.2s; animation-delay: 0.2s; }
+.star:nth-child(12) { top: 35%; left: 20%; -webkit-animation-delay: 0.6s; animation-delay: 0.6s; }
+.star:nth-child(13) { top: 40%; left: 30%; -webkit-animation-delay: 1.0s; animation-delay: 1.0s; }
+.star:nth-child(14) { top: 45%; left: 40%; -webkit-animation-delay: 1.4s; animation-delay: 1.4s; }
+.star:nth-child(15) { top: 30%; left: 50%; -webkit-animation-delay: 1.8s; animation-delay: 1.8s; }
+.star:nth-child(16) { top: 35%; left: 60%; -webkit-animation-delay: 2.2s; animation-delay: 2.2s; }
+.star:nth-child(17) { top: 40%; left: 70%; -webkit-animation-delay: 2.6s; animation-delay: 2.6s; }
+.star:nth-child(18) { top: 45%; left: 80%; -webkit-animation-delay: 3.0s; animation-delay: 3.0s; }
+.star:nth-child(19) { top: 30%; left: 90%; -webkit-animation-delay: 3.4s; animation-delay: 3.4s; }
+.star:nth-child(20) { top: 50%; left: 5%; -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+.star:nth-child(21) { top: 55%; left: 15%; -webkit-animation-delay: 0.7s; animation-delay: 0.7s; }
+.star:nth-child(22) { top: 60%; left: 25%; -webkit-animation-delay: 1.1s; animation-delay: 1.1s; }
+.star:nth-child(23) { top: 65%; left: 35%; -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }
+.star:nth-child(24) { top: 50%; left: 45%; -webkit-animation-delay: 1.9s; animation-delay: 1.9s; }
+.star:nth-child(25) { top: 55%; left: 55%; -webkit-animation-delay: 2.3s; animation-delay: 2.3s; }
+.star:nth-child(26) { top: 60%; left: 65%; -webkit-animation-delay: 2.7s; animation-delay: 2.7s; }
+.star:nth-child(27) { top: 65%; left: 75%; -webkit-animation-delay: 3.1s; animation-delay: 3.1s; }
+.star:nth-child(28) { top: 50%; left: 85%; -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
+.star:nth-child(29) { top: 55%; left: 95%; -webkit-animation-delay: 3.9s; animation-delay: 3.9s; }
+.star:nth-child(30) { top: 70%; left: 10%; -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--space-accent);
+    color: var(--space-black);
+    text-decoration: none;
+    border: 4px solid var(--space-black);
+    box-shadow: 4px 4px 0 var(--space-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--space-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--space-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 51, 0.8);
+    border: 4px solid var(--space-accent);
+    position: relative;
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--space-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section évaluation */
+.evaluation-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--space-black);
+    color: var(--space-text);
+}
+
+h1 {
+    color: var(--space-accent);
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--space-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour l'affichage du PDF */
+.pdf-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 3px solid var(--space-accent);
+    color: #000;
+}
+
+/* Styles spécifiques pour le contenu du PDF */
+.pdf-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pdf-subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* Bouton de style espace */
+.space-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--space-accent);
+    color: var(--space-black);
+    text-decoration: none;
+    border: 4px solid var(--space-black);
+    box-shadow: 4px 4px 0 var(--space-black);
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.space-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--space-black);
+}
+
+.space-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--space-black);
+}
+
+/* PDF viewer */
+#pdf-viewer {
+    text-align: center;
+}
+
+/* Étoile filante */
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    top: 20%;
+    left: -100px;
+    -webkit-animation: shootStar 5s linear infinite;
+    animation: shootStar 5s linear infinite;
+    opacity: 0;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    top: -2px;
+    right: 0;
+    box-shadow: 0 0 10px 2px white;
+}
+
+@-webkit-keyframes shootStar {
+    0% { -webkit-transform: translateX(0) translateY(0) rotate(20deg); transform: translateX(0) translateY(0) rotate(20deg); opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { -webkit-transform: translateX(150vw) translateY(50vh) rotate(20deg); transform: translateX(150vw) translateY(50vh) rotate(20deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes shootStar {
+    0% { transform: translateX(0) translateY(0) rotate(20deg); opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { transform: translateX(150vw) translateY(50vh) rotate(20deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .pdf-container {
+        padding: 10px;
+        overflow-x: scroll;
+    }
+}
+
+/* Section évaluation */
+.evaluation-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--space-black);
+    color: var(--space-text);
+}
+
+h1 {
+    color: var(--space-accent);
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--space-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour l'affichage du PDF */
+.pdf-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 3px solid var(--space-accent);
+    color: #000;
+}
+
+/* Styles spécifiques pour le contenu du PDF */
+.pdf-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pdf-subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* Bouton de style espace */
+.space-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--space-accent);
+    color: var(--space-black);
+    text-decoration: none;
+    border: 4px solid var(--space-black);
+    box-shadow: 4px 4px 0 var(--space-black);
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.space-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--space-black);
+}
+
+.space-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--space-black);
+}
+
+/* PDF viewer */
+#pdf-viewer {
+    text-align: center;
+}
+
+/* Étoile filante */
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    top: 20%;
+    left: -100px;
+    animation: shootStar 6s linear infinite;
+    opacity: 0;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    top: -2px;
+    right: 0;
+    box-shadow: 0 0 10px 2px white;
+}
+
+@keyframes shootStar {
+    0% { transform: translateX(0) translateY(0) rotate(20deg); opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { transform: translateX(150vw) translateY(50vh) rotate(20deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .pdf-container {
+        padding: 10px;
+        overflow-x: scroll;
+    }
+}
+
+/* Section évaluation */
+.evaluation-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--space-black);
+    color: var(--space-text);
+}
+
+h1 {
+    color: var(--space-accent);
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--space-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour l'affichage du PDF */
+.pdf-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 3px solid var(--space-accent);
+    color: #000;
+}
+
+/* Styles spécifiques pour le contenu du PDF */
+.pdf-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pdf-subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* Bouton de style espace */
+.space-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--space-accent);
+    color: var(--space-black);
+    text-decoration: none;
+    border: 4px solid var(--space-black);
+    box-shadow: 4px 4px 0 var(--space-black);
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.space-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--space-black);
+}
+
+.space-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--space-black);
+}
+
+/* Section auto-évaluation */
+.self-evaluation {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(74, 80, 178, 0.2);
+    border: 3px solid var(--space-light);
+}
+
+/* Grille de compétences */
+.skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 250px;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--space-accent);
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--space-accent);
+}
+
+/* Section objectifs */
+.goals {
+    margin-top: 30px;
+}
+
+.goals ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.goals li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.goals li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: var(--space-accent);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Étoile filante */
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    top: 20%;
+    left: -100px;
+    animation: shootStar 6s linear infinite;
+    opacity: 0;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    top: -2px;
+    right: 0;
+    box-shadow: 0 0 10px 2px white;
+}
+
+@keyframes shootStar {
+    0% { transform: translateX(0) translateY(0) rotate(20deg); opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { transform: translateX(150vw) translateY(50vh) rotate(20deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .pdf-container {
+        padding: 10px;
+        overflow-x: scroll;
+    }
+    
+    .skill-grid {
+        flex-direction: column;
+    }
+}
+.star:nth-child(28) { top: 50%; left: 85%; animation-delay: 3.5s; }
+.star:nth-child(29) { top: 55%; left: 95%; animation-delay: 3.9s; }
+.star:nth-child(30) { top: 70%; left: 10%; animation-delay: 0.4s; }
+
+/* Planètes en rotation */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.planet1 {
+    width: 60px;
+    height: 60px;
+    background-color: #b91cff;
+    top: 70%;
+    left: 10%;
+    animation: orbitPlanet1 30s linear infinite;
+}
+
+.planet1::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    background-color: #680092;
+    top: 40%;
+    transform: rotate(-20deg);
+}
+
+.planet2 {
+    width: 40px;
+    height: 40px;
+    background-color: #ff4400;
+    top: 75%;
+    right: 15%;
+    animation: orbitPlanet2 25s linear infinite;
+}
+
+.planet2::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #802200;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+}
+
+@keyframes orbitPlanet1 {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-50px) translateX(100px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes orbitPlanet2 {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(30px) translateX(-70px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--space-accent);
+    color: var(--space-black);
+    text-decoration: none;
+    border: 4px solid var(--space-black);
+    box-shadow: 4px 4px 0 var(--space-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--space-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--space-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 51, 0.8);
+    border: 4px solid var(--space-accent);
+    position: relative;
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--space-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section évaluation */
+.evaluation-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--space-black);
+    color: var(--space-text);
+}
+
+h1 {
+    color: var(--space-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour l'affichage du PDF */
+.pdf-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    border: 3px solid var(--space-accent);
+    color: #000;
+}
+
+/* Styles spécifiques pour le contenu du PDF */
+.pdf-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pdf-subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* Étoile filante */
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    top: 20%;
+    left: -100px;
+    animation: shootStar 6s linear infinite;
+    opacity: 0;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    top: -2px;
+    right: 0;
+    box-shadow: 0 0 10px 2px white;
+}
+
+@keyframes shootStar {
+    0% { transform: translateX(0) translateY(0) rotate(20deg); opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { transform: translateX(150vw) translateY(50vh) rotate(20deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .pdf-container {
+        padding: 10px;
+        overflow-x: scroll;
+    }
+}

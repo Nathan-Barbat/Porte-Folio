@@ -1,0 +1,800 @@
+/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs - niveau aquatique */
+:root {
+    --water-bg: #0058bc;
+    --water-deep: #003c80;
+    --water-light: #00a2ff;
+    --water-accent: #ffcb05;
+    --water-text: #ffffff;
+    --water-sand: #e8c170;
+    --water-coral: #ff7a85;
+    --water-black: #000000;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--water-bg);
+    color: var(--water-text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(0deg, var(--water-sand) 0%, var(--water-sand) 70px, transparent 70px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 100px, var(--water-deep) 100px, var(--water-deep) 200px),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 100px, var(--water-deep) 100px, var(--water-deep) 200px);
+    background-position: bottom, top left, top left;
+    background-repeat: repeat-x, repeat, repeat;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+/* Effet de bulles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: bubbleRise linear infinite;
+}
+
+@keyframes bubbleRise {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+/* Génération de bulles */
+.bubble:nth-child(1) { left: 10%; width: 10px; height: 10px; animation-duration: 8s; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 30%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 7s; animation-delay: 1s; }
+.bubble:nth-child(4) { left: 70%; width: 12px; height: 12px; animation-duration: 9s; animation-delay: 3s; }
+.bubble:nth-child(5) { left: 90%; width: 7px; height: 7px; animation-duration: 6s; animation-delay: 2.5s; }
+.bubble:nth-child(6) { left: 20%; width: 9px; height: 9px; animation-duration: 8.5s; animation-delay: 1.5s; }
+.bubble:nth-child(7) { left: 45%; width: 11px; height: 11px; animation-duration: 7.5s; animation-delay: 0.5s; }
+.bubble:nth-child(8) { left: 65%; width: 14px; height: 14px; animation-duration: 9.5s; animation-delay: 4s; }
+.bubble:nth-child(9) { left: 85%; width: 6px; height: 6px; animation-duration: 5.5s; animation-delay: 2.2s; }
+.bubble:nth-child(10) { left: 25%; width: 13px; height: 13px; animation-duration: 8.2s; animation-delay: 3.5s; }
+
+/* Effet d'ondulation de l'eau */
+.water-surface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, var(--water-light), transparent);
+    opacity: 0.5;
+    animation: waterWave 3s ease-in-out infinite;
+}
+
+@keyframes waterWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--water-accent);
+    color: var(--water-black);
+    text-decoration: none;
+    border: 4px solid var(--water-black);
+    box-shadow: 4px 4px 0 var(--water-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--water-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--water-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 60, 128, 0.7);
+    border: 4px solid var(--water-accent);
+    position: relative;
+    backdrop-filter: blur(2px);
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--water-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section alternance */
+.alternance-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--water-black);
+    color: var(--water-text);
+}
+
+h1 {
+    color: var(--water-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour les sections d'image et texte */
+.content-bloc {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    background-color: rgba(0, 162, 255, 0.2);
+    border: 2px solid var(--water-light);
+    padding: 15px;
+}
+
+.image-container {
+    flex: 0 0 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--water-accent);
+    border: 4px solid var(--water-black);
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+/* Style spécifique pour l'image de Méricq */
+.mericq-image {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.mericq-image img {
+    width: auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+    display: block;
+    object-fit: contain;
+}
+
+.text-container {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Poissons animés */
+.fish {
+    position: absolute;
+    width: 24px;
+    height: 12px;
+    background-color: #ff8800;
+    border-radius: 12px 0 0 12px;
+}
+
+.fish::before {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 12px;
+    border-color: transparent transparent transparent #ff8800;
+}
+
+.fish::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 3px;
+    height: 3px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.fish1 {
+    top: 120px;
+    left: 10%;
+    animation: fishSwim1 20s linear infinite;
+}
+
+.fish2 {
+    top: 200px;
+    right: 10%;
+    transform: scaleX(-1);
+    animation: fishSwim2 25s linear infinite;
+}
+
+.fish3 {
+    bottom: 150px;
+    left: 30%;
+    background-color: #33ccff;
+    animation: fishSwim3 15s linear infinite;
+}
+
+.fish3::before {
+    border-color: transparent transparent transparent #33ccff;
+}
+
+@keyframes fishSwim1 {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(100px) translateY(30px); }
+    50% { transform: translateX(200px) translateY(0); }
+    75% { transform: translateX(100px) translateY(-30px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes fishSwim2 {
+    0% { transform: scaleX(-1) translateX(0) translateY(0); }
+    25% { transform: scaleX(-1) translateX(120px) translateY(-40px); }
+    50% { transform: scaleX(-1) translateX(240px) translateY(0); }
+    75% { transform: scaleX(-1) translateX(120px) translateY(40px); }
+    100% { transform: scaleX(-1) translateX(0) translateY(0); }
+}
+
+@keyframes fishSwim3 {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(150px) translateY(20px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+/* Algues */
+.algae {
+    position: absolute;
+    bottom: 70px;
+    width: 8px;
+    height: 40px;
+    background-color: #00aa44;
+    border-radius: 4px 4px 0 0;
+    transform-origin: bottom center;
+    animation: sway 3s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+.algae1 {
+    left: 15%;
+    height: 50px;
+    animation-duration: 4s;
+}
+
+.algae2 {
+    left: 18%;
+    height: 35px;
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+}
+
+.algae3 {
+    right: 25%;
+    height: 45px;
+    animation-duration: 4.5s;
+}
+
+.algae4 {
+    right: 28%;
+    height: 30px;
+    animation-duration: 3s;
+    animation-delay: 0.7s;
+}
+
+/* Coraux décoratifs */
+.coral {
+    position: absolute;
+    bottom: 70px;
+    width: 20px;
+    height: 25px;
+    background-color: var(--water-coral);
+}
+
+.coral::before, .coral::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background-color: var(--water-coral);
+    bottom: 0;
+}
+
+.coral::before {
+    left: -8px;
+    border-radius: 5px 0 0 0;
+}
+
+.coral::after {
+    right: -8px;
+    border-radius: 0 5px 0 0;
+}
+
+.coral1 {
+    left: 40%;
+}
+
+.coral2 {
+    right: 15%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .content-bloc {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image-container {
+        margin-right: 0;
+    }
+    
+    .mericq-image {
+        margin-right: 0;
+    }
+}/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs - niveau aquatique */
+:root {
+    --water-bg: #0058bc;
+    --water-deep: #003c80;
+    --water-light: #00a2ff;
+    --water-accent: #ffcb05;
+    --water-text: #ffffff;
+    --water-sand: #e8c170;
+    --water-coral: #ff7a85;
+    --water-black: #000000;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--water-bg);
+    color: var(--water-text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(0deg, var(--water-sand) 0%, var(--water-sand) 70px, transparent 70px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 100px, var(--water-deep) 100px, var(--water-deep) 200px),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 100px, var(--water-deep) 100px, var(--water-deep) 200px);
+    background-position: bottom, top left, top left;
+    background-repeat: repeat-x, repeat, repeat;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+/* Effet de bulles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: bubbleRise linear infinite;
+}
+
+@keyframes bubbleRise {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+/* Génération de bulles */
+.bubble:nth-child(1) { left: 10%; width: 10px; height: 10px; animation-duration: 8s; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 30%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 7s; animation-delay: 1s; }
+.bubble:nth-child(4) { left: 70%; width: 12px; height: 12px; animation-duration: 9s; animation-delay: 3s; }
+.bubble:nth-child(5) { left: 90%; width: 7px; height: 7px; animation-duration: 6s; animation-delay: 2.5s; }
+.bubble:nth-child(6) { left: 20%; width: 9px; height: 9px; animation-duration: 8.5s; animation-delay: 1.5s; }
+.bubble:nth-child(7) { left: 45%; width: 11px; height: 11px; animation-duration: 7.5s; animation-delay: 0.5s; }
+.bubble:nth-child(8) { left: 65%; width: 14px; height: 14px; animation-duration: 9.5s; animation-delay: 4s; }
+.bubble:nth-child(9) { left: 85%; width: 6px; height: 6px; animation-duration: 5.5s; animation-delay: 2.2s; }
+.bubble:nth-child(10) { left: 25%; width: 13px; height: 13px; animation-duration: 8.2s; animation-delay: 3.5s; }
+
+/* Effet d'ondulation de l'eau */
+.water-surface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, var(--water-light), transparent);
+    opacity: 0.5;
+    animation: waterWave 3s ease-in-out infinite;
+}
+
+@keyframes waterWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--water-accent);
+    color: var(--water-black);
+    text-decoration: none;
+    border: 4px solid var(--water-black);
+    box-shadow: 4px 4px 0 var(--water-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--water-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--water-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 60, 128, 0.7);
+    border: 4px solid var(--water-accent);
+    position: relative;
+    backdrop-filter: blur(2px);
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--water-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section alternance */
+.alternance-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--water-black);
+    color: var(--water-text);
+}
+
+h1 {
+    color: var(--water-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour les sections d'image et texte */
+.content-bloc {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    background-color: rgba(0, 162, 255, 0.2);
+    border: 2px solid var(--water-light);
+    padding: 15px;
+}
+
+.image-container {
+    flex: 0 0 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--water-accent);
+    border: 4px solid var(--water-black);
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.text-container {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Poissons animés */
+.fish {
+    position: absolute;
+    width: 24px;
+    height: 12px;
+    background-color: #ff8800;
+    border-radius: 12px 0 0 12px;
+}
+
+.fish::before {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 12px;
+    border-color: transparent transparent transparent #ff8800;
+}
+
+.fish::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 3px;
+    height: 3px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.fish1 {
+    top: 120px;
+    left: 10%;
+    animation: fishSwim1 20s linear infinite;
+}
+
+.fish2 {
+    top: 200px;
+    right: 10%;
+    transform: scaleX(-1);
+    animation: fishSwim2 25s linear infinite;
+}
+
+.fish3 {
+    bottom: 150px;
+    left: 30%;
+    background-color: #33ccff;
+    animation: fishSwim3 15s linear infinite;
+}
+
+.fish3::before {
+    border-color: transparent transparent transparent #33ccff;
+}
+
+@keyframes fishSwim1 {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(100px) translateY(30px); }
+    50% { transform: translateX(200px) translateY(0); }
+    75% { transform: translateX(100px) translateY(-30px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes fishSwim2 {
+    0% { transform: scaleX(-1) translateX(0) translateY(0); }
+    25% { transform: scaleX(-1) translateX(120px) translateY(-40px); }
+    50% { transform: scaleX(-1) translateX(240px) translateY(0); }
+    75% { transform: scaleX(-1) translateX(120px) translateY(40px); }
+    100% { transform: scaleX(-1) translateX(0) translateY(0); }
+}
+
+@keyframes fishSwim3 {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(150px) translateY(20px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+/* Algues */
+.algae {
+    position: absolute;
+    bottom: 70px;
+    width: 8px;
+    height: 40px;
+    background-color: #00aa44;
+    border-radius: 4px 4px 0 0;
+    transform-origin: bottom center;
+    animation: sway 3s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+.algae1 {
+    left: 15%;
+    height: 50px;
+    animation-duration: 4s;
+}
+
+.algae2 {
+    left: 18%;
+    height: 35px;
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+}
+
+.algae3 {
+    right: 25%;
+    height: 45px;
+    animation-duration: 4.5s;
+}
+
+.algae4 {
+    right: 28%;
+    height: 30px;
+    animation-duration: 3s;
+    animation-delay: 0.7s;
+}
+
+/* Coraux décoratifs */
+.coral {
+    position: absolute;
+    bottom: 70px;
+    width: 20px;
+    height: 25px;
+    background-color: var(--water-coral);
+}
+
+.coral::before, .coral::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background-color: var(--water-coral);
+    bottom: 0;
+}
+
+.coral::before {
+    left: -8px;
+    border-radius: 5px 0 0 0;
+}
+
+.coral::after {
+    right: -8px;
+    border-radius: 0 5px 0 0;
+}
+
+.coral1 {
+    left: 40%;
+}
+
+.coral2 {
+    right: 15%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .content-bloc {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image-container {
+        margin-right: 0;
+    }
+}

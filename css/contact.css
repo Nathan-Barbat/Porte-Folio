@@ -1,0 +1,332 @@
+/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs - niveau château */
+:root {
+    --castle-bg: #6b6b6b;
+    --castle-dark: #464646;
+    --castle-stone: #8a8a8a;
+    --castle-accent: #c52018;
+    --castle-text: #ffffff;
+    --castle-black: #000000;
+    --castle-fire: #ff7700;
+    --castle-chain: #c0c0c0;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--castle-bg);
+    color: var(--castle-text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(0deg, var(--castle-dark) 0%, var(--castle-dark) 70px, transparent 70px),
+        repeating-linear-gradient(90deg, var(--castle-bg) 0px, var(--castle-bg) 48px, var(--castle-stone) 48px, var(--castle-stone) 50px),
+        repeating-linear-gradient(0deg, var(--castle-bg) 0px, var(--castle-bg) 48px, var(--castle-stone) 48px, var(--castle-stone) 50px);
+    background-position: bottom, top left, top left;
+    background-repeat: repeat-x, repeat, repeat;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Torches animées */
+.torch {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #8b4513;
+}
+
+.torch::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--castle-fire);
+    border-radius: 50% 50% 0 0;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { transform: scaleY(1.0) scaleX(1.0); opacity: 0.8; }
+    100% { transform: scaleY(1.2) scaleX(0.9); opacity: 1; }
+}
+
+.torch1 {
+    top: 80px;
+    left: 15%;
+}
+
+.torch2 {
+    top: 80px;
+    right: 15%;
+}
+
+.torch3 {
+    top: 300px;
+    left: 5%;
+}
+
+.torch4 {
+    top: 300px;
+    right: 5%;
+}
+
+/* Chaînes suspendues */
+.chain {
+    position: absolute;
+    width: 4px;
+    height: 80px;
+    background-color: var(--castle-chain);
+    top: 50px;
+}
+
+.chain::before, .chain::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    background-color: var(--castle-chain);
+    border: 2px solid var(--castle-dark);
+    left: -4px;
+}
+
+.chain::before {
+    top: 10px;
+}
+
+.chain::after {
+    top: 30px;
+}
+
+.chain1 {
+    left: 30%;
+}
+
+.chain2 {
+    right: 30%;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--castle-accent);
+    color: var(--castle-text);
+    text-decoration: none;
+    border: 4px solid var(--castle-black);
+    box-shadow: 4px 4px 0 var(--castle-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--castle-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--castle-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(40, 40, 40, 0.9);
+    border: 4px solid var(--castle-accent);
+    position: relative;
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--castle-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section contact */
+.contact-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--castle-black);
+    color: var(--castle-text);
+}
+
+h1 {
+    color: var(--castle-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Formulaire de contact style Mario */
+.contact-form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--castle-text);
+    text-shadow: 1px 1px 0 var(--castle-black);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: 3px solid var(--castle-stone);
+    color: var(--castle-text);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--castle-accent);
+    box-shadow: 0 0 0 2px rgba(197, 32, 24, 0.5);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--castle-accent);
+    color: var(--castle-text);
+    border: 4px solid var(--castle-black);
+    box-shadow: 4px 4px 0 var(--castle-black);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--castle-black);
+}
+
+.submit-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--castle-black);
+}
+
+/* Briques de château */
+.castle-brick {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: var(--castle-stone);
+    border: 1px solid var(--castle-dark);
+}
+
+.brick1 {
+    bottom: 90px;
+    left: 10%;
+}
+
+.brick2 {
+    bottom: 110px;
+    left: 10%;
+}
+
+.brick3 {
+    bottom: 90px;
+    left: calc(10% + 35px);
+}
+
+.brick4 {
+    bottom: 90px;
+    right: 10%;
+}
+
+.brick5 {
+    bottom: 110px;
+    right: 10%;
+}
+
+.brick6 {
+    bottom: 90px;
+    right: calc(10% + 35px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+}

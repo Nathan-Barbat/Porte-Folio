@@ -1,0 +1,398 @@
+/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs - niveau forêt */
+:root {
+    --forest-bg: #228b22;
+    --forest-dark: #006400;
+    --forest-light: #32cd32;
+    --forest-accent: #ff9c00;
+    --forest-text: #ffffff;
+    --forest-black: #000000;
+    --forest-trunk: #8b4513;
+    --forest-soil: #5e3a00;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--forest-bg);
+    color: var(--forest-text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(0deg, var(--forest-soil) 0%, var(--forest-soil) 70px, transparent 70px),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,30 L70,30 L50,10 Z' fill='%23006400'/%3E%3C/svg%3E");
+    background-position: bottom, center;
+    background-repeat: repeat-x, repeat;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Arbres pixel art */
+.tree {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.tree::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 30px;
+    background-color: var(--forest-trunk);
+}
+
+.tree::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid var(--forest-dark);
+}
+
+.tree1 {
+    bottom: 70px;
+    left: 5%;
+}
+
+.tree2 {
+    bottom: 70px;
+    right: 5%;
+}
+
+.tree3 {
+    top: 170px;
+    left: 15%;
+}
+
+.tree4 {
+    top: 170px;
+    right: 15%;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--forest-accent);
+    color: var(--forest-black);
+    text-decoration: none;
+    border: 4px solid var(--forest-black);
+    box-shadow: 4px 4px 0 var(--forest-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--forest-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--forest-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 100, 0, 0.8);
+    border: 4px solid var(--forest-accent);
+    position: relative;
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--forest-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section veille */
+.veille-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--forest-black);
+    color: var(--forest-text);
+}
+
+h1 {
+    color: var(--forest-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour les cartes de veille */
+.veille-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.veille-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 3px solid var(--forest-accent);
+    padding: 15px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.veille-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.veille-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--forest-accent);
+}
+
+.card-date {
+    font-size: 10px;
+    color: var(--forest-accent);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: var(--forest-light);
+}
+
+.card-content {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--forest-accent);
+    color: var(--forest-black);
+    text-decoration: none;
+    border: 2px solid var(--forest-black);
+    font-size: 10px;
+    transition: all 0.2s;
+}
+
+.card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Plantes grimpantes */
+.vine {
+    position: absolute;
+    width: 5px;
+    height: 100px;
+    background-color: var(--forest-dark);
+    z-index: -1;
+}
+
+.vine::before, .vine::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background-color: var(--forest-light);
+    border-radius: 50%;
+}
+
+.vine::before {
+    left: -12px;
+    top: 30px;
+}
+
+.vine::after {
+    left: -12px;
+    top: 70px;
+}
+
+.vine1 {
+    top: 100px;
+    left: 7%;
+    height: 300px;
+}
+
+.vine2 {
+    top: 150px;
+    right: 7%;
+    height: 250px;
+}
+
+/* Fleurs */
+.flower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.flower::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+}
+
+.flower::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    top: 6px;
+    left: 6px;
+}
+
+.flower1 {
+    bottom: 85px;
+    left: 25%;
+}
+
+.flower2 {
+    bottom: 85px;
+    left: 45%;
+}
+
+.flower3 {
+    bottom: 85px;
+    right: 35%;
+}
+
+/* Nuages pixel art */
+.cloud {
+    position: absolute;
+    top: 70px;
+    width: 60px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.cloud::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.cloud::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.cloud1 {
+    left: 20%;
+    animation: floatCloud 30s linear infinite;
+}
+
+.cloud2 {
+    right: 15%;
+    animation: floatCloud 35s linear infinite reverse;
+}
+
+@keyframes floatCloud {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .veille-cards {
+        grid-template-columns: 1fr;
+    }
+}

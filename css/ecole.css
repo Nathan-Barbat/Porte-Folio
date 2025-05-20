@@ -1,0 +1,352 @@
+/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs - niveau souterrain */
+:root {
+    --cave-bg: #000000;
+    --cave-brick: #5560ff;
+    --cave-accent: #cb6c00;
+    --cave-text: #ffffff;
+    --cave-ground: #784a00;
+    --cave-pipe: #00b543;
+    --cave-black: #000000;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--cave-bg);
+    color: var(--cave-text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(0deg, var(--cave-ground) 0%, var(--cave-ground) 70px, transparent 70px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 32px, var(--cave-brick) 32px, var(--cave-brick) 64px),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 32px, var(--cave-brick) 32px, var(--cave-brick) 64px);
+    background-position: bottom, top left, top left;
+    background-repeat: repeat-x, repeat, repeat;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Éléments lumineux du niveau souterrain */
+.cave-light {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 204, 0, 0.7);
+    animation: flicker 3s infinite alternate;
+}
+
+.light1 {
+    top: 80px;
+    left: 15%;
+}
+
+.light2 {
+    top: 150px;
+    right: 25%;
+}
+
+.light3 {
+    bottom: 120px;
+    left: 35%;
+}
+
+.light4 {
+    bottom: 200px;
+    right: 10%;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--cave-accent);
+    color: var(--cave-text);
+    text-decoration: none;
+    border: 4px solid var(--cave-black);
+    box-shadow: 4px 4px 0 var(--cave-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--cave-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--cave-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 4px solid var(--cave-accent);
+    position: relative;
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--cave-accent);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section école */
+.ecole-section {
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--cave-black);
+    color: var(--cave-text);
+}
+
+h1 {
+    color: var(--cave-accent);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour les sections d'image et texte */
+.content-bloc {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    background-color: rgba(85, 96, 255, 0.2);
+    border: 2px solid var(--cave-brick);
+    padding: 15px;
+}
+
+.image-container {
+    flex: 0 0 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--cave-accent);
+    border: 4px solid var(--cave-black);
+    position: relative;
+}
+
+/* Style spécifique pour l'image du Campus 47 */
+.campus-image {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.campus-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+/* Style pixel pour le cadre photo */
+.image-container::before,
+.image-container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--cave-accent);
+}
+
+.image-container::before {
+    bottom: -4px;
+    left: -4px;
+}
+
+.image-container::after {
+    bottom: -4px;
+    right: -4px;
+}
+
+.text-container {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Champignons décoratifs */
+.mushroom {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 2px solid var(--cave-black);
+}
+
+.mushroom::before {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 2px;
+    width: 8px;
+    height: 12px;
+    background-color: #fffafa;
+    border: 2px solid var(--cave-black);
+}
+
+.mushroom1 {
+    bottom: 120px;
+    left: 10%;
+}
+
+.mushroom2 {
+    bottom: 100px;
+    right: 20%;
+}
+
+/* Chauves-souris animées */
+.bat {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background-color: transparent;
+}
+
+.bat::before, .bat::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    background-color: #444;
+    top: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.bat::before {
+    left: 0;
+    animation: flapLeft 0.5s infinite alternate;
+}
+
+.bat::after {
+    right: 0;
+    animation: flapRight 0.5s infinite alternate;
+}
+
+@keyframes flapLeft {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-20deg); }
+}
+
+@keyframes flapRight {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(20deg); }
+}
+
+.bat1 {
+    top: 50px;
+    right: 30%;
+    animation: flyBat 15s linear infinite;
+}
+
+.bat2 {
+    top: 120px;
+    left: 20%;
+    animation: flyBat 20s linear infinite reverse;
+}
+
+@keyframes flyBat {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 30px); }
+    50% { transform: translate(100px, 0); }
+    75% { transform: translate(50px, -30px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .content-bloc {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image-container {
+        margin-right: 0;
+    }
+    
+    .campus-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

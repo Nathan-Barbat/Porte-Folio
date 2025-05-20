@@ -1,0 +1,281 @@
+/* Polices pixel art */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+}
+
+/* Variables de couleurs inspirées des jeux Mario */
+:root {
+    --mario-sky: #5c94fc;
+    --mario-ground: #c84c0c;
+    --mario-block: #e69c21;
+    --mario-brick: #a04000;
+    --mario-pipe: #00b543;
+    --mario-text: #ffffff;
+    --mario-black: #000000;
+}
+
+/* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--mario-sky);
+    color: var(--mario-text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(0deg, var(--mario-ground) 0%, var(--mario-ground) 70px, transparent 70px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 48px, rgba(255, 255, 255, 0.1) 48px, rgba(255, 255, 255, 0.1) 50px),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 48px, rgba(255, 255, 255, 0.1) 48px, rgba(255, 255, 255, 0.1) 50px);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+/* Nuages pixel art */
+.cloud {
+    position: absolute;
+    background-color: white;
+    width: 60px;
+    height: 20px;
+    border-radius: 10px;
+    box-shadow: 
+        15px -10px 0 0 white,
+        30px -15px 0 0 white,
+        45px -10px 0 0 white,
+        60px 0 0 0 white;
+}
+
+.cloud1 {
+    top: 50px;
+    left: 10%;
+    animation: floatCloud 30s linear infinite;
+}
+
+.cloud2 {
+    top: 80px;
+    right: 20%;
+    animation: floatCloud 35s linear infinite reverse;
+}
+
+@keyframes floatCloud {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Navigation style Mario */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--mario-block);
+    color: var(--mario-black);
+    text-decoration: none;
+    border: 4px solid var(--mario-black);
+    box-shadow: 4px 4px 0 var(--mario-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--mario-black);
+}
+
+nav a:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--mario-black);
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 4px solid var(--mario-block);
+    position: relative;
+}
+
+/* Coins de bloc style Mario */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--mario-block);
+}
+
+.container::before {
+    top: -4px;
+    left: -4px;
+}
+
+.container::after {
+    top: -4px;
+    right: -4px;
+}
+
+/* Section présentation */
+.presentation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    flex: 0 0 200px;
+    max-width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--mario-block);
+    border: 4px solid var(--mario-black);
+    position: relative;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+/* Style pixel pour le cadre photo */
+.profile-pic::before,
+.profile-pic::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--mario-block);
+}
+
+.profile-pic::before {
+    bottom: -4px;
+    left: -4px;
+}
+
+.profile-pic::after {
+    bottom: -4px;
+    right: -4px;
+}
+
+.bio {
+    flex: 1;
+    min-width: 250px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 0 var(--mario-black);
+}
+
+/* Bouton LinkedIn style Mario */
+.social-links {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: var(--mario-pipe);
+    color: white;
+    text-decoration: none;
+    border: 4px solid var(--mario-black);
+    box-shadow: 4px 4px 0 var(--mario-black);
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--mario-black);
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--mario-black);
+}
+
+/* Elements décoratifs pixel art */
+.brick {
+    width: 16px;
+    height: 16px;
+    background-color: var(--mario-brick);
+    border: 2px solid var(--mario-black);
+    display: inline-block;
+    margin: 1px;
+}
+
+.pipe {
+    width: 32px;
+    height: 48px;
+    background-color: var(--mario-pipe);
+    border: 4px solid var(--mario-black);
+    position: absolute;
+    bottom: 70px;
+    right: 5%;
+}
+
+.pipe::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -16px;
+    width: 48px;
+    height: 16px;
+    background-color: var(--mario-pipe);
+    border: 4px solid var(--mario-black);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .presentation {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-pic {
+        margin-right: 0;
+    }
+}
