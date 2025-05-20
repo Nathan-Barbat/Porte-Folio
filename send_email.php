@@ -6,7 +6,7 @@
         $telephone = $_POST['telephone'];
         $message = $_POST['message'];
         
-        $to = "votre-email@exemple.com"; // Remplacez par votre adresse email
+        $to = "47nathan.barbat@laposte.net"; // Remplacez par votre adresse email
         $subject = "Nouveau message de contact depuis votre portfolio";
         
         $email_content = "Nom: $nom\n";
@@ -18,9 +18,5 @@
         $headers = "From: $email";
         
         mail($to, $subject, $email_content, $headers);
-        
-        // Redirection après envoi
-        header("Location: merci.html"); // Créez une page de remerciement
-        exit;
     }
     ?>
